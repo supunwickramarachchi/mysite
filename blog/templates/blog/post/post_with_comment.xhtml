@@ -1,0 +1,11 @@
+{% if comment_posts %}
+    <ul>
+        {% for post in comment_posts %}
+            <li>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>       
+{% else %}
+    <p>There are no most viewed post.</p>
+{% endif %}
