@@ -35,3 +35,7 @@ def get_most_commented_posts(count=5):
 @register.filter(name='markdown')
 def markdown_format(text):
     return mark_safe(markdown.markdown(text))
+
+@register.simple_tag
+def total_comments_for_post(post):
+    return Comment.active_comments.filter(post=post).count()
